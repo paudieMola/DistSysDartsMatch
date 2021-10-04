@@ -3,10 +3,7 @@ from tinydb import TinyDB, Query
 import random
 import threading
 import time
-"""
-GIT FIT repo test
-Recreate
-"""
+
 
 class DartsMatchDao:
     __instance = None
