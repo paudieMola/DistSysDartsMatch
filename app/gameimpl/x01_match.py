@@ -99,7 +99,7 @@ class X01Match(MatchManager, MatchVisitTemplate):
     def format_summary(self, player_index, visit):
         # include suggested checkout if remaining score can be checked
         # out in 3 darts
-        summary = "Last visit was by " + self.match.players[player_index] + " with " + visit.to.string() + "\n"
+        summary = "Last visit was by " + self.match.players[player_index] + " with " + visit.to_string() + "\n"
 
         if self.match.winning_player_index is not -1:
             summary += self.match.players[self.match.winning_player_index] + "wins in " + \
