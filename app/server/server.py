@@ -5,11 +5,10 @@ from concurrent import futures
 import grpc
 
 from app.gameimpl import x01_match
-"""Commented out until grpc problem is sorted
+"""Commented out until grpc problem is sorted"""
 from darts_match_pb2 import VisitResponse, RegisterResponse. FinalizeResponse, MatchResponse,\
  WatchResponse, Player, Dart
-from darts_match_pb2_grpc import DartsMatchServicer, add_DartsMatchServices_to_server
-"""
+from darts_match_pb2_grpc import DartsMatchServicer, add_DartsMatchServicer_to_server
 from app.server.match_registry import MatchRegistry
 from domain import darts_match, visit
 from pattern import object_factory
