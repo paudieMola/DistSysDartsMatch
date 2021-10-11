@@ -6,11 +6,16 @@ class MatchManager(ABC):
 
     def set_match(self, match):
         self.match = match
-        self.post_init() #initialise whatever is specific
+        #self.post_init() #initialise whatever is specific
                         # to the match type
 
     def end_match(self):
+        ####should this have been changed in lab 3
         self.match.active = False
+
+    def finalize_setup(self):
+        #
+        self.post_init()
 
     @abstractmethod
     def post_init(self):

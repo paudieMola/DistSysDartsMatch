@@ -1,3 +1,5 @@
+from datatype.enums import MatchStatus
+
 class DartsMatch:
     """ This was the original hardcoded script
     def __init__(self, type, player1, player2):
@@ -7,7 +9,8 @@ class DartsMatch:
     """
 
     def __init__(self):
-        self.active = True
+        self.status = MatchStatus.INVALID
+        #self.active = True ##New vs old on additional_changes mixed up I'd say
         self.players = []
         self.last_player_index = -1
         self.visits = []
