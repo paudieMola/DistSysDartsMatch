@@ -25,7 +25,7 @@ class X01Match(MatchManager, MatchVisitTemplate):
 
         """
         This has the potential to be 
-        buggy if teh match is set first and
+        buggy if the match is set first and
         players registered after
         """
 

@@ -5,8 +5,7 @@ from concurrent import futures
 import grpc
 
 from app.gameimpl import x01_match
-"""Commented out until grpc problem is sorted"""
-from darts_match_pb2 import VisitResponse, RegisterResponse. FinalizeResponse, MatchResponse,\
+from darts_match_pb2 import VisitResponse, RegisterResponse, FinalizeResponse, MatchResponse,\
  WatchResponse, Player, Dart
 from darts_match_pb2_grpc import DartsMatchServicer, add_DartsMatchServicer_to_server
 from app.server.match_registry import MatchRegistry
@@ -31,7 +30,7 @@ class DartServer(DartsMatchServicer):
     def RegisterPlayer(self, request, context):
         print("in regiser player")
         match = self.registry.get_match(request.matchId)
-        player_index = match.match.register_player(request.UserName)
+        player_index = match.match.register_player(request.userName)
         print(match.match.players)
         return RegisterResponse(playerIndex = player_index)
 
@@ -48,13 +47,15 @@ class DartServer(DartsMatchServicer):
         :param context
         :return : match_id"""
         print("In create match")
-        new_match = self.factory.create(request, matchType)
-        match - darts_match.DartsMatch()
+        #new_match is match manager object
+        new_match = self.factory.create(request.matchType)
+        #darts match domain object
+        match = darts_match.DartsMatch()
         match.register_player(request.userName)
         new_match.set_match(match)
         match_id = self.registry.add_match(new_match)
         print("Created match: "+ str(match_id.bytes))
-        return MatchResponse(matchid=match_id.bytes)
+        return MatchResponse(matchId=match_id.bytes)
 
     def WatchMatch(self, request, context):
         #get through any older visits

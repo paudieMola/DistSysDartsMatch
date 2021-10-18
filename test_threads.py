@@ -18,13 +18,13 @@ class AddThread(threading.Thread):
         print("Exiting " + self.name)
 
 
-dart_match1 = darts_match.DartsMatch('501', 'Dupe', 'Dup2')
-thread1 = AddThread(1, "Thread-1", dart_match1)
+#dart_match1 = darts_match.DartsMatch('501', 'Dupe', 'Dup2')
+#thread1 = AddThread(1, "Thread-1", dart_match1)
 
-dart_match2 = darts_match.DartsMatch('501', 'Dupe', 'Dup2')
-thread2 = AddThread(2, "Thread-2", dart_match2)
+#dart_match2 = darts_match.DartsMatch('501', 'Dupe', 'Dup2')
+#thread2 = AddThread(2, "Thread-2", dart_match2)
 
-thread1.start()
-thread2.start()
+#thread1.start()
+#thread2.start()
 
 print("Exiting main thread.")
